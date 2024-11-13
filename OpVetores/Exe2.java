@@ -1,8 +1,7 @@
-package OpVetores;
-
 public class Exe2 {
     public static int uP = -1;
     public static int[] vet = new int[100];
+    public static int uIteracao = -1;
     public static void main(String[] args) {
         int a = 0;
        
@@ -36,6 +35,7 @@ public class Exe2 {
             vet[0] = num;
             uP++;
         }
+        uIteracao = 0;
     }
 
     public static void insereUltimo(int[] vet, int num) {
@@ -44,11 +44,14 @@ public class Exe2 {
         } else {
             vet[++uP] = num;
         }
+        uIteracao = uP;
     }
 
     public static void inserePen(int[] vet, int num) {
         if (uP == -1) {
             insereUltimo(vet, num);
+        } else if (uIteracao == 0) {
+            insereInicio(vet, num);
         } else {
             for (int i = uP + 1; i > uP; i--) {
                 vet[i] = vet[i - 1];
