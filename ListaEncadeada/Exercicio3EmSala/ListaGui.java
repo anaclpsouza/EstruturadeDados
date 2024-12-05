@@ -164,6 +164,7 @@ public class ListaGui extends JFrame implements ActionListener {
                     btnProx.setEnabled(false);
                     btnAnt.setEnabled(false);
                 }
+                exibe();
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             }
