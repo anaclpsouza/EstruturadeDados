@@ -41,6 +41,9 @@ public class App {
             System.out.println();
         }
         while (!saida.isEmpty()) {
+            if(saida.tamFila() == 1) {
+            System.out.println(saida.desenfileirar());
+            } else 
             System.out.print(saida.desenfileirar() + " ");
         }
     }
