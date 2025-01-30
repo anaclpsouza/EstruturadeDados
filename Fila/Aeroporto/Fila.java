@@ -28,4 +28,8 @@ public class Fila {
     public boolean isEmpty() {
         return tam == 0;
     }
+
+    public int tamFila() {
+        return tam;
+    }
 }
