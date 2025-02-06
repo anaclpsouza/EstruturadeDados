@@ -19,15 +19,17 @@ public class App {
         }
         boolean a = true;
         while (a) {
-            System.out.println("Parcelas:");
             if (deque.isEmpty()) {
                 System.out.println("Todas as parcelas foram pagas.");
                 a = false;
+                break;
             } else {
+                System.out.println("Parcelas:");
                 deque.print();
             }
             System.out.printf("Ações: \n 1. Pagar parcela atual \n 2. Pagar última parcela \n 3. Sair \n");
             int op = sc.nextInt();
+            System.out.println(" ");
             switch (op) {
                 case 1:
                     System.out.println("Valor do pagamento: " + deque.removeFirst().getValorParcelas());
