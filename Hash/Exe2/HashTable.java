@@ -35,37 +35,29 @@ public class HashTable {
         ArrayList<Time> times = tabela[hash];
         if (times == null) {
             times = new ArrayList<Time>();
-            times.add(t);
             tabela[hash] = times;
-            return "Time adicionado!";
-        } else {
-            boolean a = false;
-            for (Time time : times) {
-                if (time.getCodigo().equals(t.getCodigo())) {
-                    a = true;
-                    return "Um time com este código já foi adicionado antes.";
-                }
-                if (!a) {
-                    times.add(t);
-                    return "Time adicionado!";
-                }
-            }
-            return "";
         }
+        
+        for (Time time : times) {
+            if (time.getCodigo().equals(t.getCodigo())) {
+                return "Um time com este código já foi adicionado antes.";
+            }
+        }
+
+        times.add(t);
+        return "Time adicionado!";
+
     }
 
     public Time remove(String chave) {
-        Time atual = null;
         int hash = hash(chave);
         ArrayList<Time> times = tabela[hash];
         if (times == null) {
             return null;
         }
-        for (Time time : times) {
-            if (time.getCodigo().equals(chave)) {
-                atual = time;
-                times.remove(time);
-                return atual;
+        for (int i = 0; i < times.size(); i++) {
+            if (times.get(i).getCodigo().equals(chave)) {
+                return times.remove(i);
             }
         }
         return null;
