@@ -48,12 +48,20 @@ public class HashTable {
     }
 
     public Livro remove(String chave) {
-        int hash = hash(chave);
-        Livro livro = this.tabela[hash];
-        this.tabela[hash] = null;
-        return livro;
-    }
+        int hash;
+        int salto;
+   
+        for (salto = 0; salto < tabela.length; salto++) {
+            hash = (hash(chave) + salto) % tabela.length;
 
+            if (tabela[hash].getISBN().equals(chave)) {
+                Livro livro = tabela[hash];
+                tabela[hash] = null;
+                return livro;
+            }
+        }
+        return null;
+    }
    /*  public void status(){
         for (int i=0;i<M;++i){
             if (tabela[i]!=null){
